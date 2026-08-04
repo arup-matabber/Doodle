@@ -1,0 +1,21 @@
+[toolchain]
+package_manager = "yarn"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.devnet]
+gig = "ALa1EKfsHHMefH139SYuSNxd2XbUPj9EN3xRTbPHQNwA"
+escrow = "7cvNPW6wKmQLVaygQi1cwrSHz1GNLtzQsurENYyfAkd4"
+reputation = "HHcJGbKX7fzaPE1UYxqfhGgToDHCDhiWCMawbkumewtt"
+achievement = "2Eb7JADE5QSWLUYwGGPSc34nUeeTmvaSg23zjcQrRKPG"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "cargo test --manifest-path programs/gig/Cargo.toml && cargo test --manifest-path programs/escrow/Cargo.toml && cargo test --manifest-path programs/reputation/Cargo.toml && cargo test --manifest-path programs/achievement/Cargo.toml"
+
+[hooks]

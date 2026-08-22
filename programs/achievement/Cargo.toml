@@ -1,0 +1,38 @@
+[package]
+name = "achievement"
+version = "0.1.0"
+description = "PayGig NFT achievement program"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "achievement"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build"]
+anchor-debug = []
+custom-heap = []
+custom-panic = []
+
+[dependencies]
+anchor-lang = { version = "1.1.2", features = ["init-if-needed"] }
+reputation = { path = "../reputation", features = ["cpi"] }
+mpl-core = "0.12.1"
+
+[dev-dependencies]
+litesvm = "0.10.0"
+solana-account = "3.2.0"
+solana-message = "3.1.0"
+solana-transaction = "3.1.0"
+solana-signer = "3.0.1"
+solana-keypair = "3.0.1"
+solana-pubkey = "3.0.0"
+solana-clock = "3.2.0"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("solana"))'] }
